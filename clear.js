@@ -1,3 +1,3 @@
-const {clear} = require("./module");
+import {clear} from './module.js';
 
 clear();

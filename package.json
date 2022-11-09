@@ -1,7 +1,8 @@
 {
+  "type": "module",
   "dependencies": {
-    "del": "^6.0.0",
+    "del": "^7.0.0",
     "fs": "^0.0.2",
-    "puppeteer": "^18.1.0"
+    "puppeteer": "^19.2.2"
   }
 }

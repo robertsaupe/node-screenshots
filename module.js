@@ -1,19 +1,20 @@
-const puppeteer = require('puppeteer');
-const del = require('del');
-const fs = require('fs');
+import puppeteer from 'puppeteer';
+import {deleteAsync} from 'del';
+import fs from 'fs';
 
 const screenshot_path = './screenshots/';
 
-const sleep = (milliseconds) => {
+export const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
-async function clear() {
-    await del([`${screenshot_path}`]);
+export async function clear() {
+    await deleteAsync([`${screenshot_path}`]);
     if (!fs.existsSync(screenshot_path)) fs.mkdirSync(screenshot_path);
+    fs.appendFileSync(screenshot_path + '.gitkeep', '');
 }
 
-async function openbrowser (name, url, width, height, ext = 'png', sleeptime = 1000) {
+export async function openbrowser (name, url, width, height, ext = 'png', sleeptime = 1000) {
     const browser = await puppeteer.launch({ headless: false, defaultViewport: {width:width, height:height} });
     const page = await browser.newPage();
     await page.goto(url);
@@ -22,8 +23,4 @@ async function openbrowser (name, url, width, height, ext = 'png', sleeptime = 1
     browser.close();
 }
 
-exports.default = openbrowser;
-exports.sleep = sleep;
-exports.clear = clear;
-exports.clean = clear;
-exports.openbrowser = openbrowser;
+export default openbrowser;
