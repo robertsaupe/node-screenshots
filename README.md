@@ -26,9 +26,29 @@ This software is distributed under the MIT license. Please read [LICENSE](LICENS
 
 ### Installing Requirements on Windows
 
+#### Installing [Chocolatey (Package Manager for Windows)](https://chocolatey.org) [Recommended, Optional]
+
+First, ensure that you are using an [administrative shell](https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-10/) - you can also install as a non-admin, check out [Non-Administrative Installation](https://docs.chocolatey.org/en-us/choco/setup#non-administrative-install).
+
+Install with powershell.exe
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+Other install methods can be found [here](https://chocolatey.org/install).
+
 #### Installing [NVM for Windows](https://github.com/coreybutler/nvm-windows)
 
-Download and install nvm-setup.exe from [releases](https://github.com/coreybutler/nvm-windows/releases)
+##### Installing [NVM for Windows](https://github.com/coreybutler/nvm-windows) using [Chocolatey (Package Manager for Windows)](https://chocolatey.org)
+
+```bash
+choco install nvm
+```
+
+or
+
+##### Download and install nvm-setup.exe from [releases](https://github.com/coreybutler/nvm-windows/releases)
 
 #### Installing Node.js Version using [NVM for Windows](https://github.com/coreybutler/nvm-windows)
 
